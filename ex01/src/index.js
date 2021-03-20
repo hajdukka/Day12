@@ -1,5 +1,4 @@
 function myRecursion(arr, n) {
-  var sum;
   if (n <= 0) {
     return 0;
   } else {
