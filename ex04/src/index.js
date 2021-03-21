@@ -1,22 +1,22 @@
 function sumFibonacci(num) {
-  if (num <= 0 || !num.isInteger) {
-    return 0;
-  } else if (num == 1) {
-    return 1;
-  } else {
-    const arr = sumFibonacci(num - 1);
-    arr.push(sumFibonacci(num - 1) + sumFibonacci(num - 2));
-
-    var sum = 0;
-
-    for (i = 0; i < arr.length; i++) {
-      if (arr[i] % 2 != 0) {
-        sum += arr[i];
-      }
-    }
-    return sum;
+  var sum = 0;
+  var fib = [];
+  fib[0] = 1;
+  fib[1] = 1;
+  for (var i = fib.length; i < num; i++) {
+    fib[i] = fib[i - 1] + fib[i - 2];
   }
+  for (var j = 0; j < fib.length; j++) {
+    if (fib[j] % 2 != 0 && fib[j] <= num) {
+      sum += fib[j];
+    }
+  }
+  return sum;
 }
 
-console.log(sumFibonacci(15));
+console.log(sumFibonacci(1));
+console.log(sumFibonacci(10));
+console.log(sumFibonacci(20));
+console.log(sumFibonacci(4));
+console.log(sumFibonacci(-5));
 module.exports = sumFibonacci;
